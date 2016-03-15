@@ -1,8 +1,4 @@
 class CalendarDay:
-   date = ''
-   temperature = 0
-   clouds = ''
-   pressure = 0
 
    def __init__(self, date, temperature, clouds, pressure):
        self.date = date
