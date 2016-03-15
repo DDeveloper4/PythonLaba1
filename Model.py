@@ -11,3 +11,7 @@ class CalendarDay:
        print "Temperature - ", CalendarDay.temperature
        print "Clouds - ", CalendarDay.clouds
        print "Pressure - ", CalendarDay.pressure
+
+diary = []    
+    
+    
