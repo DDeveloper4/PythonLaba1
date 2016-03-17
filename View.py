@@ -35,7 +35,9 @@ while True:
     elif key =="3":
         print ("Please enter date")
         date = raw_input()
-        #delete day
+        for day in Main_menu():
+            if day.date == date:
+                Main_menu().remove(day)
     elif key == "4":
         print ("Please enter date")
         #Date_menu()
