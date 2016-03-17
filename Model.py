@@ -12,6 +12,15 @@ class CalendarDay:
        print "Clouds - ", CalendarDay.clouds
        print "Pressure - ", CalendarDay.pressure
 
+   def setNewTemperature(temperature):
+       self.temperature = temperature 
+
+   def setNewClouds(clouds):
+       self.clouds = clouds 
+
+   def setNewPressure(pressure):
+       self.pressure = pressure 
+
 diary = []    
     
     
