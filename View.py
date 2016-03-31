@@ -1,6 +1,7 @@
 import Model
 import Pickle_file
 
+
 def Main_menu():
     print ("                 1. SHOW")
     print ("                 2. ADD")
@@ -15,7 +16,7 @@ def Date_menu():
     print ("                 3. PRESSURE")
     print ("                 4. EXIT")
 
-Pickle_file.load_f()
+#Pickle_file.load_f()
 
 Main_menu()
 while True:
@@ -132,7 +133,7 @@ while True:
         print ("Goodbye")
         break
 
-Pickle_file.return_file()
+#Pickle_file.return_file()
 
 
 

@@ -2,21 +2,21 @@ import pickle
 import re
 import Model
 
-def load_f():
+'''def load_f():
 	try:
 		with open('diary.txt') as file: 
 			f = open( 'diary.txt', "r" )
 			Model.diary = pickle.load(f)
 	except IOError:
 		print ("Error! File not found or don`t read")
-		'''f = open( 'diary.txt', "r" )
-    	pickle.dump( Model.diary, f)'''
+		#f = open( 'diary.txt', "r" )
+    	#pickle.dump( Model.diary, f)
 	f.close()
 
 def return_file():
 	f = open('diary.txt','w')
 	pickle.dump(Model.diary,f)
-	f.close()
+	f.close()'''
 
 def showAllDays():
 	if (len(Model.diary) == 0):
@@ -35,7 +35,10 @@ def addDay(date, temperature, clouds, pressure):
 		Model.diary.append(Model.CalendarDay(date, temperature, clouds, pressure))
 
 def checkingDate(date):
-	p = re.compile(r"^[0-3][0-9][.][01][0-9][.][12][09][0-9][0-9]$")
+	if ((date[0] == "1") or (date[0] == "2")):
+		p = re.compile(r"^[0-2][0-9][.][01][0-9][.][12][09][0-9][0-9]$")
+	else:
+		p = re.compile(r"^[03][0-1][.][01][0-9][.][12][09][0-9][0-9]$")
 	if p.search(date):
 		return 1
 	else:
