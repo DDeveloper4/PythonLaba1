@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; Diary_1 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Diary_1 1.0 documentation" href="index.html" />
+    <link rel="next" title="&lt;no title&gt;" href="View.html" />
+    <link rel="prev" title="Welcome to Diary_1’s documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>import doctest</p>
+<p>import re</p>
+<p>import pydoc</p>
+<p># checking date on correct</p>
+<dl class="docutils">
+<dt>def checkingDate(date):</dt>
+<dd><p class="first">&#8220;&#8221;&#8220;</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">checkingDate</span><span class="p">(</span><span class="s1">&#39;12.02.2015&#39;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="go">&quot;&quot;&quot;</span>
+<span class="go">if (len(date) == 10):</span>
+<span class="go">    if ((date[0] == &#39;1&#39;) or (date[0] == &#39;2&#39;)):</span>
+<span class="go">        if (date[3] == &#39;1&#39;):</span>
+<span class="go">            p = re.compile(r&quot;^[0-2][0-9][.][1][0-2][.][0-9][0-9][0-9][0-9]$&quot;)</span>
+<span class="go">        if (date[3] == &#39;0&#39;):</span>
+<span class="go">            p = re.compile(r&quot;^[0-2][0-9][.][0][0-9][.][0-9][0-9][0-9][0-9]$&quot;)</span>
+<span class="go">    if (date[0] == &#39;3&#39;):</span>
+<span class="go">        if (date[3] == &#39;1&#39;):</span>
+<span class="go">            p = re.compile(r&quot;^[03][0-1][.][1][0-2][.][0-9][0-9][0-9][0-9]$&quot;)</span>
+<span class="go">        if (date[3] == &#39;0&#39;):</span>
+<span class="go">            p = re.compile(r&quot;^[3][0-1][.][0][0-9][.][0-9][0-9][0-9][0-9]$&quot;)</span>
+<span class="go">    if p.search(date):</span>
+<span class="go">        return 1</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p># checking temperature on correct</p>
+<dl class="docutils">
+<dt>def checkingTemperature(temperature):</dt>
+<dd><p class="first">&#8220;&#8221;&#8220;</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">checkingTemperature</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="go">&quot;&quot;&quot;</span>
+<span class="go">a = int(temperature)</span>
+<span class="go">if ((a &gt;= -60) and (a &lt;= 60)):</span>
+<span class="go">    return 1</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p># checking clouds on correct</p>
+<dl class="docutils">
+<dt>def checkingClouds(clouds):</dt>
+<dd><p class="first">&#8220;&#8221;&#8221;
+;param checkingClouds: contact temperature
+&gt;&gt;&gt; checkingClouds(&#8216;clear&#8217;)
+1
+&#8220;&#8221;&#8221;
+reserved_clouds = [&#8216;clear&#8217;, &#8216;sunny&#8217;, &#8216;cloudy&#8217;, &#8216;fog&#8217;, &#8216;rain&#8217;]
+for i in reserved_clouds:</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>if i == clouds:</dt>
+<dd>return 1</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+<p># checking pressure on correct</p>
+<dl class="docutils">
+<dt>def checkingPressure(pressure):</dt>
+<dd><p class="first">&#8220;&#8221;&#8221;
+;param checkingPressure: contact temperature
+&gt;&gt;&gt; checkingPressure(750)
+1
+&#8220;&#8221;&#8221;
+a = int(pressure)
+if ((a &gt;= 700) and (a &lt;= 800)):</p>
+<blockquote class="last">
+<div>return 1</div></blockquote>
+</dd>
+<dt>if (__name__ == &#8216;__main__&#8217;):</dt>
+<dd>import doctest
+doctest.testmod()</dd>
+</dl>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Diary_1&#8217;s documentation!</a></li>
+      <li>Next: <a href="View.html" title="next chapter">&lt;no title&gt;</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Controller.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dima, Artem, Yura.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/Controller.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

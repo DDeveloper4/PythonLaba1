@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>&lt;no title&gt; &mdash; Diary_1 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Diary_1 1.0 documentation" href="index.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Model.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="Controller.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>import Model</p>
+<p>import Controller</p>
+<p># function to display second menu</p>
+<dl class="docutils">
+<dt>def Main_menu():</dt>
+<dd>print (&#8221;                 1. SHOW&#8221;)
+print (&#8221;                 2. ADD&#8221;)
+print (&#8221;                 3. DELETE&#8221;)
+print (&#8221;                 4. CHANGE&#8221;)
+print (&#8221;                 5. FIND&#8221;)
+print (&#8221;                 6. EXIT&#8221;)</dd>
+</dl>
+<p># function to display second menu</p>
+<dl class="docutils">
+<dt>def Date_menu():</dt>
+<dd>print (&#8221;                 1. TEMPERATURE&#8221;)
+print (&#8221;                 2. CLOUDS&#8221;)
+print (&#8221;                 3. PRESSURE&#8221;)
+print (&#8221;                 4. EXIT&#8221;)</dd>
+</dl>
+<p># function to display all days</p>
+<dl class="docutils">
+<dt>def showAllDays(diary):</dt>
+<dd><dl class="first last docutils">
+<dt>if (len(diary) == 0):</dt>
+<dd>print (&#8220;Error! Diary is empty&#8221;)</dd>
+<dt>else:</dt>
+<dd><dl class="first last docutils">
+<dt>for i in diary:</dt>
+<dd>i.displayDayInfo()
+print (&#8220;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8221;)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p># function to add a new day</p>
+<dl class="docutils">
+<dt>def addDay(diary, date, temperature, clouds, pressure):</dt>
+<dd><dl class="first last docutils">
+<dt>for i in diary:</dt>
+<dd><dl class="first last docutils">
+<dt>if i.date == date:</dt>
+<dd>print(&#8220;Error! Date already exists&#8221;)</dd>
+</dl>
+</dd>
+<dt>else:</dt>
+<dd>diary.append(Model.CalendarDay(date, temperature, clouds, pressure))</dd>
+</dl>
+</dd>
+</dl>
+<p>Main_menu()</p>
+<dl class="docutils">
+<dt>while True:</dt>
+<dd><p class="first">key = raw_input()
+if key == &#8220;1&#8221;:</p>
+<blockquote>
+<div>showAllDays(Model.diary)
+Main_menu()</div></blockquote>
+<dl class="docutils">
+<dt>elif key == &#8220;2&#8221;:</dt>
+<dd><p class="first">print (&#8220;Please enter data for the day&#8221;)
+while True:</p>
+<blockquote>
+<div><p>print (&#8220;DATE (in dd.mm.yyyy): &#8221;)
+date = raw_input()
+if (Controller.checkingDate(date)):</p>
+<blockquote>
+<div>break</div></blockquote>
+</div></blockquote>
+<dl class="docutils">
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;TEMPERATURE (in Celsiuses (-60 to +60)): &#8221;)
+temperature = raw_input()
+if (Controller.checkingTemperature(temperature)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;CLOUDS (clear, sunny, cloudy, fog, rain): &#8221;)
+clouds = raw_input()
+if (Controller.checkingClouds(clouds)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;PRESSURE (value of 700 to 800): &#8221;)
+pressure = raw_input()
+if (Controller.checkingPressure(pressure)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+</dl>
+<p class="last">addDay(Model.diary, date, temperature, clouds, pressure)
+date = None
+temperature = None
+clouds = None
+pressure = None
+Main_menu()</p>
+</dd>
+<dt>elif key == &#8220;3&#8221;:</dt>
+<dd><dl class="first docutils">
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;DATE (in dd.mm.yyyy): &#8221;)
+date = raw_input()
+if (Controller.checkingDate(date)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+<dt>for day in Model.diary:</dt>
+<dd><dl class="first last docutils">
+<dt>if day.date == date:</dt>
+<dd>Model.diary.remove(day)
+break</dd>
+</dl>
+</dd>
+<dt>else:</dt>
+<dd>print (&#8220;Error! Date not found&#8221;)</dd>
+</dl>
+<p class="last">date = None
+Main_menu()</p>
+</dd>
+</dl>
+<p>elif key == &#8220;4&#8221;:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;DATE (in dd.mm.yyyy): &#8221;)
+date = raw_input()
+if (Controller.checkingDate(date)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+<dt>for day in Model.diary:</dt>
+<dd><dl class="first last docutils">
+<dt>if day.date == date:</dt>
+<dd><p class="first">Date_menu()
+while True:</p>
+<blockquote>
+<div><p>key = raw_input()
+if key == &#8220;1&#8221;:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;TEMPERATURE (in Celsiuses): &#8221;)
+temperature = raw_input()
+if (Controller.checkingTemperature(temperature)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+</dl>
+<p>day.setNewTemperature(temperature)
+Date_menu()
+temperature = None</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>elif key == &#8220;2&#8221;:</dt>
+<dd><dl class="first docutils">
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;CLOUDS (clear, sunny, cloudy, fog, rain):&#8221;)
+clouds = raw_input()
+if (Controller.checkingClouds(clouds)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+</dl>
+<p class="last">day.setNewClouds(clouds)
+Date_menu()
+clouds = None</p>
+</dd>
+<dt>elif key == &#8220;3&#8221;:</dt>
+<dd><dl class="first docutils">
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;PRESSURE (value of 700 to 800): &#8221;)
+pressure = raw_input()
+if (Controller.checkingPressure(pressure)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+</dl>
+<p class="last">day.setNewPressure(pressure)
+Date_menu()
+pressure = None</p>
+</dd>
+<dt>elif key == &#8220;4&#8221;:</dt>
+<dd>Main_menu()
+break</dd>
+</dl>
+</div></blockquote>
+<p class="last">break</p>
+</dd>
+<dt>else:</dt>
+<dd>print (&#8220;Error! Date not found&#8221;)</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="last docutils">
+<dt>elif key == &#8220;5&#8221;:</dt>
+<dd><dl class="first docutils">
+<dt>while True:</dt>
+<dd><p class="first">print (&#8220;DATE (in dd.mm.yyyy): &#8221;)
+date = raw_input()
+if (Controller.checkingDate(date)):</p>
+<blockquote class="last">
+<div>break</div></blockquote>
+</dd>
+<dt>for day in Model.diary:</dt>
+<dd><dl class="first last docutils">
+<dt>if day.date == date:</dt>
+<dd>day.displayDayInfo()
+break</dd>
+</dl>
+</dd>
+<dt>else:</dt>
+<dd>print (&#8220;Error! Date not found&#8221;)</dd>
+</dl>
+<p class="last">Main_menu()</p>
+</dd>
+<dt>elif key == &#8220;6&#8221;:</dt>
+<dd>print (&#8220;Goodbye&#8221;)
+break</dd>
+</dl>
+</dd>
+<dt>if (__name__ == &#8216;__main__&#8217;):</dt>
+<dd>import doctest
+doctest.testmod()</dd>
+</dl>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Controller.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="Model.html" title="next chapter">&lt;no title&gt;</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/View.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Dima, Artem, Yura.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/View.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
