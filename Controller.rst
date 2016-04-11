@@ -4,6 +4,138 @@ import re
 
 import pydoc
 
+import Model
+
+
+# function to display second menu
+
+
+def Date_menu():
+    print ("                 1. TEMPERATURE")
+    print ("                 2. CLOUDS")
+    print ("                 3. PRESSURE")
+    print ("                 4. EXIT")
+
+
+# function to display all days
+
+
+def showAllDays(diary):
+    if (len(diary) == 0):
+        print ("Error! Diary is empty")
+    else:
+        for i in diary:
+            i.displayDayInfo()
+            print ("------------------------")
+
+
+# input date
+
+
+def Input_date():
+    while True:
+        print ("DATE (in dd.mm.yyyy): ")
+        date = input()
+        if (checkingDate(date)):
+            return date
+
+# input temperature
+
+
+def Input_temperature():
+    while True:
+        print ("TEMPERATURE (in Celsiuses (-60 to +60)): ")
+        temperature = input()
+        if (checkingTemperature(temperature)):
+            return temperature
+
+# input clouds
+
+
+def Input_clouds():
+    while True:
+        print ("CLOUDS (clear, sunny, cloudy, fog, rain): ")
+        clouds = input()
+        if (checkingClouds(clouds)):
+            return clouds
+
+# input pressure
+
+
+def Input_pressure():
+    while True:
+        print ("PRESSURE (value of 700 to 800): ")
+        pressure = input()
+        if (checkingPressure(pressure)):
+            return pressure
+
+
+# function to add a new day
+
+
+def addDay(diary):
+    date = Input_date()
+    temperature = Input_temperature()
+    clouds = Input_clouds()
+    pressure = Input_pressure()
+    for i in diary:
+        if i.date == date:
+            print("Error! Date already exists")
+    else:
+        diary.append(Model.CalendarDay(date, temperature, clouds, pressure))
+
+# function to delete a day
+
+
+def delDay(diary):
+    date = Input_date()
+    for day in Model.diary:
+        if day.date == date:
+            Model.diary.remove(day)
+            break
+    else:
+        print ("Error! Date not found")
+
+
+# function to find a day
+
+
+def findDay(diary):
+    date = Input_date()
+    for day in Model.diary:
+        if day.date == date:
+            day.displayDayInfo()
+            break
+    else:
+        print ("Error! Date not found")
+
+
+# function to change a day
+
+
+def changeDay(diary):
+    Date_menu()
+    while True:
+        key = input()
+        if key == "1":
+            temperature = Input_temperature()
+            day.setNewTemperature(temperature)
+            Date_menu()
+            temperature = None
+        elif key == "2":
+            clouds = Input_clouds()
+            day.setNewClouds(clouds)
+            Date_menu()
+            clouds = None
+        elif key == "3":
+            pressure = Input_pressure()
+            day.setNewPressure(pressure)
+            Date_menu()
+            pressure = None
+        elif key == "4":
+            Main_menu()
+            break
+
 # checking date on correct
 
 

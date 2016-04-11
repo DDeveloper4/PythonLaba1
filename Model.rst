@@ -1,4 +1,5 @@
 # class which contains constructor, destructor and methods
+
 # for change attributes this class
 
 

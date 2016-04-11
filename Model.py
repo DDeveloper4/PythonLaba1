@@ -10,10 +10,10 @@ class CalendarDay:
         self.pressure = pressure
 
     def displayDayInfo(self):
-        print "Day date is ", self.date
-        print "Temperature - ", self.temperature
-        print "Clouds - ", self.clouds
-        print "Pressure - ", self.pressure
+        print ("Day date is ", self.date)
+        print ("Temperature - ", self.temperature)
+        print ("Clouds - ", self.clouds)
+        print ("Pressure - ", self.pressure)
 
     def setNewTemperature(self, temperature):
         self.temperature = temperature
